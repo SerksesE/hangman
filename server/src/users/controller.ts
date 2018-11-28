@@ -1,4 +1,4 @@
-import { JsonController, Post, Param, Get, Body, Authorized } from 'routing-controllers'
+import { JsonController, Post, Param, Get, Body, Authorized, CurrentUser } from 'routing-controllers'
 import User from './entity';
 import { io } from '../index'
 
@@ -9,7 +9,7 @@ export default class UserController {
   async signup(
     @Body() data: User
   ) {
-    const {password, ...rest} = data
+    const { password, ...rest } = data
     const entity = User.create(rest)
     await entity.setPassword(password)
 
@@ -31,7 +31,15 @@ export default class UserController {
     return User.findOne(id)
   }
 
-  // @Authorized()
+  @Authorized()
+  @Get('/users/me')
+  getUserMe(
+    @CurrentUser() user: User
+  ) {
+    return user
+  }
+
+  @Authorized()
   @Get('/users')
   allUsers() {
     return User.find()

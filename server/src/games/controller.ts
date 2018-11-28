@@ -5,8 +5,8 @@ import Game from './entity';
 export default class GameController {
     @Get('/games')
         async allGames(){
-            const words = await Game.find()
-            return { words }
+            const games = await Game.find()
+            return   { games }
         }
     
     @Post('/games')

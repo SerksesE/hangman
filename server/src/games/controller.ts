@@ -3,18 +3,19 @@ import Game from './entity';
 
 @JsonController()
 export default class GameController {
-  @Get('/games')
-  async allGames() {
-    const words = await Game.find()
-    return { words }
-  }
 
-  @Post('/games')
-  @HttpCode(201)
-  createGame(
-    @Body() game: Game
-  ) {
-    return game.save()
-  }
-
+    @Get('/games')
+        async allGames(){
+            const games = await Game.find()
+            return   { games }
+        }
+    
+    @Post('/games')
+        @HttpCode(201)
+        createGame(
+            @Body() game: Game
+        ) {
+            return game.save ()
+        }
+        
 }

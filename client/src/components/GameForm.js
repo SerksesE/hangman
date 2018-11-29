@@ -1,5 +1,7 @@
 
 import React from 'react';
+import {Link} from 'react-router-dom'
+
 
 
 const GameForm = (props) => {
@@ -9,8 +11,14 @@ const GameForm = (props) => {
                 <label> Your word:
                     <input type="text" name="word" onChange={props.onChange} values={props.values.word} ></input>
                     <button type="submit">Submit</button>
+                    <hr />
                 </label>
             </form>
+                    <div>
+                    <button type="submit"><Link to={'/session/:id'}></Link>
+                        Join</button>
+
+                    </div>
 
         </div>
     )

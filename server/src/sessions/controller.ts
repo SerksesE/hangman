@@ -32,7 +32,7 @@ export default class SessionController {
   @Patch('/sessions/:id/join')
   async userJoin(
     @Body()
-      playerId: any,
+    playerId: any,
     // user: User,
     // session: GameSession,
     // game: Game,
@@ -42,7 +42,7 @@ export default class SessionController {
     let player = parseInt(playerId.playerId)
 
     console.log(player)
-    
+
     const gameSession = await GameSession.findOne(sessionId)
     if (!gameSession) throw new NotFoundError('Session does not exist')
 
@@ -54,34 +54,27 @@ export default class SessionController {
     // does session have a player 1? if no userid = player1
     // return response waiting for players
 
-    console.log(gameSession)
 
     if (gameSession.player1 === null) {
-
-      console.log('hello')
       gameSession.player1 = player
-
-      console.log(gameSession)
-      return gameSession.save()  
+      return gameSession.save()
     } else if (gameSession.player1 !== null) {
       gameSession.player2 = player
     }
-    console.log(gameSession)
 
     const game1 = await Game.create({
       userId: gameSession.player1
     }).save()
-    console.log(game1)
+
     const game2 = await Game.create({
       userId: gameSession.player2
     }).save()
-    console.log(game2)
 
-    if(game1.id === undefined) throw Error
-    gameSession.game1 = game1.id 
+    if (game1.id === undefined) throw Error
+    gameSession.game1 = game1.id
 
-    if(game2.id === undefined) throw Error
-    gameSession.game2 = game2.id 
+    if (game2.id === undefined) throw Error
+    gameSession.game2 = game2.id
 
     // if yes userid = player2
     // make 2 games 
@@ -101,7 +94,7 @@ export default class SessionController {
 
     // return a response with start with oppenents game id and your own
 
-    console.log(gameSession) 
-    return gameSession.save() 
+    console.log(gameSession)
+    return gameSession.save()
   }
 }

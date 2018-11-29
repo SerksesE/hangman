@@ -10,5 +10,14 @@ export default class Game extends BaseEntity {
   @Column('text', {nullable:false})
   word: string
 
+  @Column('text', {nullable:true})
+  userId: number
+
+  @Column('text', {nullable:true})
+  guesses: [string]
+
+  @Column('text', {default: null})
+  winner: string
+
   
 }

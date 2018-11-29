@@ -1,5 +1,5 @@
 import io from 'socket.io-client'
-import {baseUrl} from './constants'
+import { baseUrl } from './constants'
 
 export default class SocketIO {
   socket = null

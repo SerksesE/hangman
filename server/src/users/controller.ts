@@ -1,4 +1,6 @@
-import { JsonController, Post, Param, Get, Body, Authorized, CurrentUser } from 'routing-controllers'
+import { JsonController, Post, Param, Get, Body, 
+  // Authorized, 
+  CurrentUser } from 'routing-controllers'
 import User from './entity';
 import { io } from '../index'
 
@@ -23,7 +25,7 @@ export default class UserController {
     return user
   }
 
-  @Authorized()
+  // @Authorized()
   @Get('/users/:id([0-9]+)')
   getUser(
     @Param('id') id: number
@@ -31,7 +33,7 @@ export default class UserController {
     return User.findOne(id)
   }
 
-  @Authorized()
+  // @Authorized()
   @Get('/users/me')
   getUserMe(
     @CurrentUser() user: User
@@ -39,7 +41,7 @@ export default class UserController {
     return user
   }
 
-  @Authorized()
+  // @Authorized()
   @Get('/users')
   allUsers() {
     return User.find()

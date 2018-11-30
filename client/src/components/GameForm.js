@@ -15,7 +15,7 @@ const GameForm = (props) => {
                 </label>
             </form>
                     <div>
-                    <button type="submit"><Link to={'/session/:id'}></Link>
+                    <button type="submit"><Link to={'/game/:id'}></Link>
                         Join</button>
 
                     </div>

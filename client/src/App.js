@@ -17,7 +17,8 @@ class App extends Component {
       <div className="App">
          <Route path="/sessions" exact component={SessionsList } />
          <Route path="/games" exact component={ GamesListContainer } /> 
-         <Route path="/session/:id" exact component={ PlayGame } /> 
+         <Route path="/sessions/:id/join" exact component={ PlayGame } /> 
+         
 
 
       </div>

@@ -1,8 +1,6 @@
 import { JsonController, Post, HttpCode, Body, Get, Patch, Param, NotFoundError } from 'routing-controllers'
-// import User from '../users/entity';
 import GameSession from './entity';
 import Game from '../games/entity';
-// import Game from '../games/entity';
 
 @JsonController()
 export default class SessionController {
@@ -63,4 +61,14 @@ export default class SessionController {
 
     return gameSession.save()
   }
+
+  @Patch('/sessions/:sessionId/games/:id')
+  async addWord(
+    @Body()
+    word: string,
+    @Param()
+  )
+
+
 }
+

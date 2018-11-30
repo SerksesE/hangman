@@ -62,12 +62,12 @@ export default class SessionController {
     return gameSession.save()
   }
 
-  @Patch('/sessions/:sessionId/games/:id')
-  async addWord(
-    @Body()
-    word: string,
-    @Param()
-  )
+  // @Patch('/sessions/:sessionId/games/:id')
+  // async addWord(
+  //   @Body()
+  //   word: string,
+  //   @Param()
+  // )
 
 
 }

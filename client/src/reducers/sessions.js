@@ -1,4 +1,4 @@
-import { SESSIONS_FETCHED, SESSION_CREATED } from "../actions/sessions";
+import { SESSIONS_FETCHED, SESSION_CREATED, SESSION_UPDATED } from "../actions/sessions";
 
 
 const sessions = (state = null, action = {}) => {
@@ -8,6 +8,10 @@ const sessions = (state = null, action = {}) => {
 
         case SESSION_CREATED:
         return [...state, 
+                action.session]
+
+        case SESSION_UPDATED:
+        return [...state,
                 action.session]
             
     

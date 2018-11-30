@@ -17,16 +17,27 @@ class App extends Component {
     return (
       <Provider store={store}>
 
-        <div className="App">
+        <div>
+        <nav>
 
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/login" component={LogoutPage} />
-          <Route exact path="/" component={SignupPage} />
+            <div className="nav-wrapper">
+              <a href="/" className="brand-logo container" ><b>Hangman</b></a>
+              <ul id="nav-mobile" className="right hide-on-med-and-down">
+                  <li><a href="/signup"><b>SignUp</b></a></li>
+                
+              </ul>
+            </div>
+            </nav>
+
+          <Route exact path="/" component={LoginPage} />
+          <Route exact path="/logout" component={LogoutPage} />
+          <Route exact path="/signup" component={SignupPage} />
 
 
           <Route path="/sessions" exact component={SessionsList} />
           <Route path="/games" exact component={GamesListContainer} />
           <Route path="/sessions/:id/join" exact component={PlayGame} />
+
         </div>
       </Provider>
     );
